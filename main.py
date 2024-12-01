@@ -17,8 +17,13 @@ def getCsvData():
             locations.append((row[0], row[1]))
     return locations
 
+# Change location format to full address format for use with Map API
+def getFullAddresses(locations):
+    fullAddresses = [f"{street}, {suburb}, Victoria, Australia" for street, suburb in locations]
+    return fullAddresses
 
 # Function testing
 locations = getCsvData()
-for street, suburb in locations:
-    print(f"Street: {street}, Suburb: {suburb}")
+fullAddresses = getFullAddresses(locations)
+for i in range(5):
+    print(fullAddresses[i])  # Print first 5 addresses
