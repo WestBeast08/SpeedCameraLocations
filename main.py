@@ -1,5 +1,7 @@
 import csv
 import folium
+from geopy.geocoders import Nominatim
+import time
 
 # Input csv data (for now manually locally) and extract street names with suburbs and put them in a list
 def getCsvData():
@@ -25,9 +27,23 @@ def getFullAddresses(locations):
 
 
 
+geolocator = Nominatim(user_agent="camera-map")
+
+def get_coordinates(address):
+    try:
+        location = geolocator.geocode(address)
+        if location:
+            return (location.latitude, location.longitude)
+        return None
+    except:
+        return None
 
 
 
+# Testing for street name to coordinates
+coords = get_coordinates("123 Smith St, Fitzroy, VIC, Australia")
+# Remember that Nomintim has a general rate limit of 1 Request/second so when looping we should add a time delay between get_coordinate calls
+print(coords)
 
 
 # Testing map on melbourne
@@ -38,6 +54,7 @@ locations = [
     (-37.8136, 144.9631, "Melbourne CBD"),
     (-37.8200, 145.0000, "South Yarra"),
     (-37.8000, 144.9500, "North Melbourne"),
+    (coords[0], coords[1], "123 Smith St, Fitzroy, VIC, Australia")
 ]
 
 # Add basic markers
