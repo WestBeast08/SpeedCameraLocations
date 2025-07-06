@@ -1,8 +1,9 @@
 import csv
+import folium
 
 # Input csv data (for now manually locally) and extract street names with suburbs and put them in a list
 def getCsvData():
-    filePath = 'Mobile-Camera-Locations-November-2024.csv'
+    filePath = 'Mobile-Camera-Locations-July-2025.csv'
     with open(filePath, 'r') as csvFile:
         csvReader = csv.reader(csvFile)
         locations = []
@@ -22,8 +23,26 @@ def getFullAddresses(locations):
     fullAddresses = [f"{street}, {suburb}, Victoria, Australia" for street, suburb in locations]
     return fullAddresses
 
-# Function testing
-locations = getCsvData()
-fullAddresses = getFullAddresses(locations)
-for i in range(5):
-    print(fullAddresses[i])  # Print first 5 addresses
+
+
+
+
+
+
+
+# Testing map on melbourne
+map_obj = folium.Map(location=[-37.8136, 144.9631], zoom_start=12)
+
+# Example locations
+locations = [
+    (-37.8136, 144.9631, "Melbourne CBD"),
+    (-37.8200, 145.0000, "South Yarra"),
+    (-37.8000, 144.9500, "North Melbourne"),
+]
+
+# Add basic markers
+for lat, lon, label in locations:
+    folium.Marker(location=[lat, lon], popup=label).add_to(map_obj)
+
+# Save to HTML
+map_obj.save("map_with_pins.html")

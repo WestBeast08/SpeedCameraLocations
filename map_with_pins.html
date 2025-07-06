@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_455221e71ada82407ab476cff42a4399 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_455221e71ada82407ab476cff42a4399" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_455221e71ada82407ab476cff42a4399 = L.map(
+                "map_455221e71ada82407ab476cff42a4399",
+                {
+                    center: [-37.8136, 144.9631],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_753677f72f7612c18654fd9dd76099db = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_753677f72f7612c18654fd9dd76099db.addTo(map_455221e71ada82407ab476cff42a4399);
+        
+    
+            var marker_d29d9a6854a0eba7909d5774059b56a4 = L.marker(
+                [-37.8136, 144.9631],
+                {}
+            ).addTo(map_455221e71ada82407ab476cff42a4399);
+        
+    
+        var popup_4401e4a7a0b969a34168b151131482b9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cae70ffe551506a2e5265f3055448523 = $(`<div id="html_cae70ffe551506a2e5265f3055448523" style="width: 100.0%; height: 100.0%;">Melbourne CBD</div>`)[0];
+                popup_4401e4a7a0b969a34168b151131482b9.setContent(html_cae70ffe551506a2e5265f3055448523);
+            
+        
+
+        marker_d29d9a6854a0eba7909d5774059b56a4.bindPopup(popup_4401e4a7a0b969a34168b151131482b9)
+        ;
+
+        
+    
+    
+            var marker_99ea7a38c5d88cf8fc511b4e1577c1da = L.marker(
+                [-37.82, 145.0],
+                {}
+            ).addTo(map_455221e71ada82407ab476cff42a4399);
+        
+    
+        var popup_6b8e568cb02c9da218d178b227f4ec19 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e82ade469b59c1a58f5cfc02ef1aef54 = $(`<div id="html_e82ade469b59c1a58f5cfc02ef1aef54" style="width: 100.0%; height: 100.0%;">South Yarra</div>`)[0];
+                popup_6b8e568cb02c9da218d178b227f4ec19.setContent(html_e82ade469b59c1a58f5cfc02ef1aef54);
+            
+        
+
+        marker_99ea7a38c5d88cf8fc511b4e1577c1da.bindPopup(popup_6b8e568cb02c9da218d178b227f4ec19)
+        ;
+
+        
+    
+    
+            var marker_3c5e033016194636da4797bec35d0844 = L.marker(
+                [-37.8, 144.95],
+                {}
+            ).addTo(map_455221e71ada82407ab476cff42a4399);
+        
+    
+        var popup_7aeed8c92de2a3f6b9238c5ca8b198ff = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f5e135bdf8bc9f37f46f5dcea7a3ebf8 = $(`<div id="html_f5e135bdf8bc9f37f46f5dcea7a3ebf8" style="width: 100.0%; height: 100.0%;">North Melbourne</div>`)[0];
+                popup_7aeed8c92de2a3f6b9238c5ca8b198ff.setContent(html_f5e135bdf8bc9f37f46f5dcea7a3ebf8);
+            
+        
+
+        marker_3c5e033016194636da4797bec35d0844.bindPopup(popup_7aeed8c92de2a3f6b9238c5ca8b198ff)
+        ;
+
+        
+    
+</script>
+</html>
