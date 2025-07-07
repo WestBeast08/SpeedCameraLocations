@@ -22,43 +22,42 @@ def getCsvData():
 
 # Change location format to full address format for use with Map API
 def getFullAddresses(locations):
-    fullAddresses = [f"{street}, {suburb}, Victoria, Australia" for street, suburb in locations]
+    fullAddresses = [f"{street}, {suburb}, VIC, Australia" for street, suburb in locations]
     return fullAddresses
 
 
 
 geolocator = Nominatim(user_agent="camera-map")
 
-def get_coordinates(address):
+def getCoordinates(address):
     try:
         location = geolocator.geocode(address)
         if location:
-            return (location.latitude, location.longitude)
+            return (location.latitude, location.longitude, address)
         return None
     except:
         return None
+    
+def coordinateAddresses(addresses):
+    locations = []
+    for address in addresses:
+        locations.append(getCoordinates(address))
+        time.sleep(1) # Nomintim rate limit
+    return locations
 
-
-
-# Testing for street name to coordinates
-coords = get_coordinates("123 Smith St, Fitzroy, VIC, Australia")
-# Remember that Nomintim has a general rate limit of 1 Request/second so when looping we should add a time delay between get_coordinate calls
-print(coords)
 
 
 # Testing map on melbourne
 map_obj = folium.Map(location=[-37.8136, 144.9631], zoom_start=12)
 
 # Example locations
-locations = [
-    (-37.8136, 144.9631, "Melbourne CBD"),
-    (-37.8200, 145.0000, "South Yarra"),
-    (-37.8000, 144.9500, "North Melbourne"),
-    (coords[0], coords[1], "123 Smith St, Fitzroy, VIC, Australia")
-]
+locations = getCsvData()
+addresses = getFullAddresses(locations[:20])
+pins = coordinateAddresses(addresses)
+print(pins)
 
 # Add basic markers
-for lat, lon, label in locations:
+for lat, lon, label in pins:
     folium.Marker(location=[lat, lon], popup=label).add_to(map_obj)
 
 # Save to HTML
