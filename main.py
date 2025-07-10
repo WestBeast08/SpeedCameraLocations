@@ -41,8 +41,12 @@ def getCoordinates(address):
 def coordinateAddresses(addresses):
     locations = []
     for address in addresses:
-        locations.append(getCoordinates(address))
+        location = getCoordinates(address)
+        if location == None:
+            continue
+        locations.append(location)
         time.sleep(1) # Nomintim rate limit
+        
     return locations
 
 
@@ -52,7 +56,7 @@ map_obj = folium.Map(location=[-37.8136, 144.9631], zoom_start=12)
 
 # Example locations
 locations = getCsvData()
-addresses = getFullAddresses(locations[:20])
+addresses = getFullAddresses(locations)
 pins = coordinateAddresses(addresses)
 print(pins)
 
