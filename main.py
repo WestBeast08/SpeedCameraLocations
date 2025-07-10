@@ -58,11 +58,16 @@ map_obj = folium.Map(location=[-37.8136, 144.9631], zoom_start=12)
 locations = getCsvData()
 addresses = getFullAddresses(locations)
 pins = coordinateAddresses(addresses)
-print(pins)
+print("Pins_")
 
 # Add basic markers
+pinsPlaced = 0
 for lat, lon, label in pins:
     folium.Marker(location=[lat, lon], popup=label).add_to(map_obj)
+    pinsPlaced += 1
+
+print(f"Pins placed: {pinsPlaced}")
+print(f"Error locations: {len(locations) - pinsPlaced}")
 
 # Save to HTML
 map_obj.save("map_with_pins.html")
